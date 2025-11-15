@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSP Electronics & Fabrication Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* ---------- GLOBAL ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f8faff;
+      color: #1b1b1b;
+      overflow-x: hidden;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    body.fade-out {
+      opacity: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- NAVIGATION (MATCHED TO INDEX.HTML) ---------- */
+    nav {
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 45px;
+      border-radius: 4px;
+    }
+
+    .logo h1 {
+      font-size: 20px;
+      color: #0B3D91;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links li a {
+      color: #333;
+      font-weight: 500;
+      font-size: 15px;
+      padding: 6px 0;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #0B3D91;
+      border-bottom: 3px solid #0B3D91;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #0b3d91;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      background: linear-gradient(135deg, rgba(11,61,145,0.8), rgba(19,63,124,0.8)), 
+                  url('background2.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 160px 20px 120px;
+      margin-top: 80px;
+      border-radius: 0 0 30px 30px;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      color: #FFD700;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #f1f5fb;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    /* ---------- HERO IMAGES ---------- */
+    .hero-circles {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .circle {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .circle:hover {
+      transform: scale(1.07);
+    }
+
+    .circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ---------- VIDEO SECTION ---------- */
+    .promo-video {
+      text-align: center;
+      padding: 80px 20px;
+      background: #f2f6fc;
+    }
+
+    .promo-video h2 {
+      font-size: 32px;
+      color: #0b3d91;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+
+    .video-box {
+      background: white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      overflow: hidden;
+      width: 600px;
+      max-width: 90%;
+      aspect-ratio: 16 / 9;
+      margin: 0 auto;
+    }
+
+    .video-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* ---------- SERVICES ---------- */
+    #services {
+      padding: 80px 40px;
+      background: #fff;
+      text-align: center;
+    }
+
+    #services h2 {
+      font-size: 36px;
+      color: #0b3d91;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 25px;
+      justify-content: center;
+    }
+
+    .service-box {
+      background: #f8faff;
+      padding: 30px 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .service-box:hover {
+      transform: translateY(-8px);
+    }
+
+    .service-icon {
+      font-size: 40px;
+      color: #0b3d91;
+      margin-bottom: 15px;
+    }
+
+    .service-box h3 {
+      font-size: 18px;
+      color: #1b1b1b;
+      font-weight: 600;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: #0b3d91;
+      color: white;
+      text-align: center;
+      padding: 25px 10px;
+      font-size: 14px;
+      border-top: 2px solid #ffd700;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        display: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ---------- NAVIGATION ---------- -->
+  <nav>
+    <div class="logo">
+      <img src="ssp.png" alt="SSP Logo">
+      <h1 style="font-size: 15px;">SSP Electronics & Fabrication Services</h1>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="service.html">Services</a></li>
+      <li><a href="accomplishment.html">Accomplishments</a></li>
+      <li><a href="project.html">Project</a></li>
+       <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ---------- HERO SECTION ---------- -->
+  <section class="hero">
+    <h2>Grow Better with SSP Electronics</h2>
+    <p>Powerful solutions for security, automation, and engineering — connecting technology and innovation to help your business thrive.</p>
+
+    <div class="hero-circles">
+      <div class="circle"><img src="service1.jpg" alt="Service 1"></div>
+      <div class="circle"><img src="service2.jpg" alt="Service 2"></div>
+      <div class="circle"><img src="service3.jpg" alt="Service 3"></div>
+      <div class="circle"><img src="Tower.jpg" alt="Tower"></div>
+    </div>
+  </section>
+
+  <!-- ---------- VIDEO SECTION ---------- -->
+  <section class="promo-video">
+    <h2>Company Overview</h2>
+    <div class="video-box">
+      <video controls muted loop playsinline>
+        <source src="vid1.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <!-- ---------- SERVICES SECTION ---------- -->
+  <section id="services">
+    <h2>Our Products & Services</h2>
+
+    <div class="services-container">
+      <div class="service-box"><div class="service-icon">📹</div><h3>CCTV System</h3></div>
+      <div class="service-box"><div class="service-icon">🖐️</div><h3>Biometric Time and Attendance</h3></div>
+      <div class="service-box"><div class="service-icon">💡</div><h3>LED Lightings</h3></div>
+      <div class="service-box"><div class="service-icon">🔒</div><h3>Door Lock Access</h3></div>
+      <div class="service-box"><div class="service-icon">📞</div><h3>PABX / Intercom</h3></div>
+      <div class="service-box"><div class="service-icon">📣</div><h3>Public Address / Paging System</h3></div>
+      <div class="service-box"><div class="service-icon">🏥</div><h3>Nurse Call System</h3></div>
+      <div class="service-box"><div class="service-icon">🔥</div><h3>FDAS (Fire Detection Alarm System)</h3></div>
+      <div class="service-box"><div class="service-icon">💦</div><h3>Sprinkler System</h3></div>
+      <div class="service-box"><div class="service-icon">☀️</div><h3>Solar Power System</h3></div>
+      <div class="service-box"><div class="service-icon">⚙️</div><h3>Steel Fabrication</h3></div>
+      <div class="service-box"><div class="service-icon">🎛️</div><h3>Instrumentation & Control System</h3></div>
+      <div class="service-box"><div class="service-icon">🚚</div><h3>Digital Truck Scale Installation</h3></div>
+      <div class="service-box"><div class="service-icon">💻</div><h3>Data / Voice Structural Cabling</h3></div>
+      <div class="service-box"><div class="service-icon">🏢</div><h3>Data Center Installation</h3></div>
+      <div class="service-box"><div class="service-icon">⬆️</div><h3>Raise Access Flooring System</h3></div>
+      <div class="service-box"><div class="service-icon">📡</div><h3>Wireless Communication System</h3></div>
+      <div class="service-box"><div class="service-icon">⚡</div><h3>Electrical System</h3></div>
+      <div class="service-box"><div class="service-icon">🏗️</div><h3>Civil Works</h3></div>
+      <div class="service-box"><div class="service-icon">🗼</div><h3>Tower Fabrication & Erection</h3></div>
+    </div>
+  </section>
+
+  <!-- ---------- FOOTER ---------- -->
+  <footer>
+    © 2025 SSP Electronics & Fabrication Services. All rights reserved.
+  </footer>
+
+  <!-- ---------- JS ---------- -->
+  <script>
+    /* ----- ACTIVE NAVIGATION FIX (MATCHED TO INDEX.HTML) ----- */
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+    document.querySelectorAll(".nav-links li a").forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+
+    /* ----- PAGE FADE OUT EFFECT ----- */
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.remove("fade-out");
+      document.querySelectorAll("a").forEach(link => {
+        if (link.href.endsWith(".html")) {
+          link.addEventListener("click", e => {
+            e.preventDefault();
+            document.body.classList.add("fade-out");
+            setTimeout(() => (window.location = link.href), 300);
+          });
+        }
+      });
+    });
+
+    /* ----- HAMBURGER MENU ----- */
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      hamburger.classList.toggle("open");
+    });
+  </script>
+
+</body>
+</html>
