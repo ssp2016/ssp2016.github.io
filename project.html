@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSP Electronics & Fabrication Services - Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- GLOBAL ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f8faff;
+      color: #1b1b1b;
+      overflow-x: hidden;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    body.fade-out {
+      opacity: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- NAVIGATION ---------- */
+    nav {
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 45px;
+      border-radius: 4px;
+    }
+
+    .logo h1 {
+      font-size: 20px;
+      color: #0B3D91;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links li a {
+      color: #333;
+      font-weight: 500;
+      font-size: 15px;
+      padding: 6px 0;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #0B3D91;
+      border-bottom: 3px solid #0B3D91;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #0b3d91;
+      border-radius: 3px;
+      transition: 0.3s;
+    }
+
+    /* ---------- HERO (FULL WIDTH) ---------- */
+    .hero {
+      margin-top: 100px;
+      background: linear-gradient(135deg, rgba(11,61,145,0.8), rgba(19,63,124,0.8)),
+                  url("background2.JPG") center/cover no-repeat;
+      text-align: center;
+      padding: 110px 20px;
+      color: white;
+      width: 100%;
+      border-radius: 0 0 30px 30px;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      color: #FFD700;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #f1f5fb;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    /* ---------- SECTIONS (FULL WIDTH BUT CONTENT CENTERED) ---------- */
+    section {
+      padding: 80px 20px;
+      width: 100%;
+    }
+
+    .section-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-overview,
+    .project-outcome {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .project-overview h3,
+    .project-outcome h3 {
+      color: #0B3D91;
+      font-size: 32px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .project-overview p,
+    .project-outcome p {
+      color: #5f6b7a;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* SERVICES GRID */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .service-card {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      padding: 35px 25px;
+      text-align: center;
+      transition: 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(11,61,145,0.2);
+    }
+
+    .service-card .icon {
+      font-size: 48px;
+      color: #0B3D91;
+      margin-bottom: 15px;
+    }
+
+    footer {
+      background: #0b3d91;
+      color: white;
+      text-align: center;
+      padding: 25px 10px;
+      font-size: 14px;
+      border-top: 2px solid #ffd700;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        display: none;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">
+      <img src="ssp.png" alt="SSP Logo">
+      <h1 style="font-size: 15px;">SSP Electronics & Fabrication Services</h1>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="service.html">Services</a></li>
+      <li><a href="accomplishment.html">Accomplishments</a></li>
+      <li><a href="project.html" class="active">Project</a></li>
+       <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Project Showcase: <span>Dole Philippines</span></h2>
+    <p>An integrated smart industrial complex leveraging SSP’s full suite of security, automation, and infrastructure solutions.</p>
+  </section>
+
+  <!-- PROJECT OVERVIEW -->
+  <section>
+    <div class="project-overview section-content">
+      <h3>Project Overview</h3>
+      <p>
+        SSP Electronics & Fabrication Services delivered an end-to-end technology deployment across Dole Philippines — integrating security, automation, and energy systems into one seamless ecosystem.
+        The project includes CCTV systems, biometric attendance, LED lighting, and intelligent access control systems designed for safety, efficiency, and sustainability.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section>
+    <div class="section-content">
+      <div class="services-grid">
+        <div class="service-card"><div class="icon">📹</div><h3>CCTV System</h3><p>24/7 surveillance with HD cameras and remote monitoring.</p></div>
+        <div class="service-card"><div class="icon">🖐️</div><h3>Biometric Attendance</h3><p>Digital time tracking for workforce automation.</p></div>
+        <div class="service-card"><div class="icon">💡</div><h3>LED Lighting</h3><p>Smart LED lighting for energy efficiency.</p></div>
+        <div class="service-card"><div class="icon">🔒</div><h3>Door Access Control</h3><p>Secure access with modern locking systems.</p></div>
+        <div class="service-card"><div class="icon">📞</div><h3>Intercom Systems</h3><p>Clear communication lines across facilities.</p></div>
+        <div class="service-card"><div class="icon">📡</div><h3>Wireless Network</h3><p>Stable and wide-range network coverage.</p></div>
+        <div class="service-card"><div class="icon">☀️</div><h3>Solar Power</h3><p>Energy-saving solar hybrid systems.</p></div>
+        <div class="service-card"><div class="icon">🔥</div><h3>Fire Detection & Alarm</h3><p>FDAS integration for safety and compliance.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT OUTCOME -->
+  <section>
+    <div class="project-outcome section-content">
+      <h3>Project Outcome</h3>
+      <p>
+        Dole Philippines now operates as a fully integrated smart facility.
+        With SSP’s technology solutions, operations are safer, more efficient, and ready for future growth.
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 SSP Electronics & Fabrication Services. All rights reserved.
+  </footer>
+
+  <!-- JS -->
+  <script>
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+
+    document.querySelectorAll(".nav-links li a").forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.remove("fade-out");
+      document.querySelectorAll("a").forEach(link => {
+        if (link.href.endsWith(".html")) {
+          link.addEventListener("click", e => {
+            e.preventDefault();
+            document.body.classList.add("fade-out");
+            setTimeout(() => (window.location = link.href), 300);
+          });
+        }
+      });
+    });
+
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      hamburger.classList.toggle("open");
+    });
+  </script>
+
+</body>
+</html>

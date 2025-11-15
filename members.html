@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Team Member Section</title>
+  <style>
+    :root{
+      --bg:#e6ecee;
+      --accent:#1f6f61; /* green for title */
+      --muted:#6b7a7b;
+      --line:#2da7d3;
+      --circle-size:150px; /* smaller photo size */
+      --max-width:1200px;
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#122;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 20px;
+    }
+
+    .wrap{max-width:var(--max-width); width:100%;}
+
+    .header{
+      text-align:center;
+      margin-bottom:36px;
+    }
+    .diamond{
+      width:14px;height:14px;
+      background:#2f5961;
+      display:inline-block;
+      transform:rotate(45deg);
+      margin-bottom:12px
+    }
+    h1{
+      margin:8px 0 6px;
+      font-size:40px;
+      letter-spacing:2px;
+      color:var(--accent)
+    }
+    .subtitle{
+      color:var(--muted);
+      letter-spacing:1px
+    }
+
+    .team-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:30px;
+      align-items:start;
+      justify-items:center;
+    }
+
+    .member{
+      text-align:center;
+      padding:0 8px;
+    }
+
+    .photo{
+      width:var(--circle-size);
+      height:var(--circle-size);
+      margin:0 auto 12px;
+      border-radius:50%;
+      overflow:hidden;
+      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fff;
+    }
+
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .name{
+      font-weight:700;
+      color:var(--accent);
+      letter-spacing:1px;
+      margin:6px 0 2px;
+    }
+
+    .position{
+      font-size:13px;
+      font-weight:700;
+      color:#234b48;
+      opacity:0.9;
+      margin-bottom:8px;
+    }
+
+    .divider{
+      height:3px;
+      width:50%;
+      margin:8px auto;
+      background:var(--line);
+      border-radius:2px;
+    }
+
+    .desc{
+      max-width:220px;
+      margin:8px auto 0;
+      color:#374647;
+      font-size:13px;
+      line-height:1.4;
+    }
+
+    /* responsive */
+    @media (max-width:1100px){
+      .team-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:600px){
+      h1{font-size:28px}
+      .team-grid{grid-template-columns:1fr; gap:24px}
+      .photo{--circle-size:130px; width:130px; height:130px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <div class="diamond" aria-hidden></div>
+      <h1>TEAM MEMBER</h1>
+      <div class="subtitle">INSERT SUB TITLE</div>
+    </header>
+
+    <section class="team-grid">
+
+      <article class="member">
+        <figure class="photo">
+          <img src="janjan.jpg" alt="person 1">
+        </figure>
+        <div class="name">NAME</div>
+        <div class="position">POSITION</div>
+        <div class="divider"></div>
+        <p class="desc">Lorem ipsum dolor sit amet, no pri zril phaedrum.</p>
+      </article>
+
+      <article class="member">
+        <figure class="photo">
+          <img src="jake.jpg" alt="person 2">
+        </figure>
+        <div class="name">NAME</div>
+        <div class="position">POSITION</div>
+        <div class="divider"></div>
+        <p class="desc">Lorem ipsum dolor sit amet, no pri zril phaedrum.</p>
+      </article>
+
+      <article class="member">
+        <figure class="photo">
+          <img src="jeanis.jpg" alt="person 3">
+        </figure>
+        <div class="name">NAME</div>
+        <div class="position">POSITION</div>
+        <div class="divider"></div>
+        <p class="desc">Lorem ipsum dolor sit amet, no pri zril phaedrum.</p>
+      </article>
+
+      <article class="member">
+        <figure class="photo">
+          <img src="jade.jpg" alt="person 4">
+        </figure>
+        <div class="name">NAME</div>
+        <div class="position">POSITION</div>
+        <div class="divider"></div>
+        <p class="desc">Lorem ipsum dolor sit amet, no pri zril phaedrum.</p>
+      </article>
+
+      <article class="member">
+        <figure class="photo">
+          <img src="vince.jpg" alt="person 5">
+        </figure>
+        <div class="name">NAME</div>
+        <div class="position">POSITION</div>
+        <div class="divider"></div>
+        <p class="desc">Lorem ipsum dolor sit amet, no pri zril phaedrum.</p>
+      </article>
+
+      <article class="member">
+        <figure class="photo">
+          <img src="tonic.jpg" alt="person 6">
+        </figure>
+        <div class="name">NAME</div>
+        <div class="position">POSITION</div>
+        <div class="divider"></div>
+        <p class="desc">Lorem ipsum dolor sit amet, no pri zril phaedrum.</p>
+      </article>
+
+      <article class="member">
+        <figure class="photo">
+          <img src="micheal.jpg" alt="person 7">
+        </figure>
+        <div class="name">NAME</div>
+        <div class="position">POSITION</div>
+        <div class="divider"></div>
+        <p class="desc">Lorem ipsum dolor sit amet, no pri zril phaedrum.</p>
+      </article>
+
+      <article class="member">
+        <figure class="photo">
+          <img src="kent.jpg" alt="person 8">
+        </figure>
+        <div class="name">NAME</div>
+        <div class="position">POSITION</div>
+        <div class="divider"></div>
+        <p class="desc">Lorem ipsum dolor sit amet, no pri zril phaedrum.</p>
+      </article>
+
+      <article class="member">
+        <figure class="photo">
+          <img src="garces.jpg" alt="person 9">
+        </figure>
+        <div class="name">NAME</div>
+        <div class="position">POSITION</div>
+        <div class="divider"></div>
+        <p class="desc">Lorem ipsum dolor sit amet, no pri zril phaedrum.</p>
+      </article>
+
+      <article class="member">
+        <figure class="photo">
+          <img src="ivan.jpg" alt="person 10">
+        </figure>
+        <div class="name">NAME</div>
+        <div class="position">POSITION</div>
+        <div class="divider"></div>
+        <p class="desc">Lorem ipsum dolor sit amet, no pri zril phaedrum.</p>
+      </article>
+
+      <article class="member">
+        <figure class="photo">
+          <img src="billy.jpg" alt="person 11">
+        </figure>
+        <div class="name">NAME</div>
+        <div class="position">POSITION</div>
+        <div class="divider"></div>
+        <p class="desc">Lorem ipsum dolor sit amet, no pri zril phaedrum.</p>
+      </article>
+
+    </section>
+  </div>
+</body>
+</html>

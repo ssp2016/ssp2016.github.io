@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accomplishment Report | SSP Electronics and Fabrication Services</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f7f9fc;
+      color: #333;
+    }
+
+    /* NAVIGATION */
+    nav {
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 45px;
+      border-radius: 4px;
+    }
+
+    .logo h1 {
+      font-size: 15px;
+      color: #0B3D91;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links li a {
+      color: #333;
+      font-weight: 500;
+      font-size: 15px;
+      padding: 6px 0;
+      border-bottom: 3px solid transparent;
+      transition: .3s;
+      text-decoration: none;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #0B3D91;
+      border-bottom: 3px solid #0B3D91;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #0b3d91;
+      border-radius: 3px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 0;
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* ======================================================
+       BLUE BACKGROUND – REACHES TOP + CURVED BOTTOM
+    ====================================================== */
+    .blue-bg {
+      background: linear-gradient(135deg, rgba(11,61,145,0.88), rgba(19,63,124,0.88)),
+                  url('background2.JPG') center/cover no-repeat;
+      width: 100%;
+      margin-top: 70px; /* keeps nav visible */
+      padding-top: 120px;
+      padding-bottom: 120px;
+      border-radius: 0 0 40px 40px; /* bottom curve */
+      color: white;
+      text-align: center;
+    }
+
+    .blue-bg h1 {
+      font-size: 40px;
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+
+    .blue-bg p {
+      opacity: 0.9;
+      font-size: 18px;
+    }
+
+    /* SECTION TITLE */
+    .accomplishment-section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .accomplishment-section h2 {
+      font-size: 32px;
+      color: #0B3D91;
+      margin-bottom: 40px;
+      font-weight: 700;
+    }
+
+    /* WORK CARD */
+    .work-card {
+      background: white;
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .work-card h3 {
+      text-align: left;
+      font-size: 20px;
+      color: #0B3D91;
+      margin-bottom: 15px;
+      font-weight: 600;
+      border-left: 5px solid #FFD700;
+      padding-left: 10px;
+    }
+
+    /* CAROUSEL */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #0B3D91;
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .carousel-btn.prev { left: -40px; }
+    .carousel-btn.next { right: -40px; }
+
+    @media (max-width: 768px) {
+      .carousel-slide { grid-template-columns: repeat(2, 1fr); }
+      .carousel-btn.prev { left: -15px; }
+      .carousel-btn.next { right: -15px; }
+    }
+
+    @media (max-width: 480px) {
+      .carousel-slide { grid-template-columns: repeat(1, 1fr); }
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0B3D91;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 50px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">
+      <img src="ssp.png" alt="SSP Logo">
+      <h1>SSP Electronics & Fabrication Services</h1>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="service.html">Services</a></li>
+      <li><a href="accomplishment.html" class="active">Accomplishments</a></li>
+      <li><a href="project.html">Project</a></li>
+       <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- BLUE TOP HERO -->
+  <div class="blue-bg">
+    <h1>Accomplishment Report</h1>
+    <p>Engineering Excellence You Can Trust</p>
+  </div>
+
+  <!-- ACCOMPLISHMENTS SECTION -->
+  <section class="accomplishment-section">
+    <h2>Work Accomplishment Photos</h2>
+
+    <!-- FDAS INSTALLATION -->
+    <div class="work-card">
+      <h3>🔥 FDAS Installation at Coco Mama</h3>
+      <div class="carousel-container" id="fdas">
+        <button class="carousel-btn prev" onclick="moveSlide('fdas', -1)">❮</button>
+        <button class="carousel-btn next" onclick="moveSlide('fdas', 1)">❯</button>
+
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="fdas.jpg">
+            <img src="Picture6.jpg">
+            <img src="Picture7.jpg">
+            <img src="Picture8.jpg">
+            <img src="Picture9.jpg">
+            <img src="Picture10.jpg">
+            <img src="Picture11.jpg">
+            <img src="Picture12.jpg">
+            <img src="Picture13.jpg">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="Picture14.jpg">
+            <img src="Picture15.jpg">
+            <img src="Picture16.jpg">
+            <img src="Picture17.jpg">
+            <img src="Picture18.jpg">
+            <img src="Picture19.jpg">
+            <img src="Picture20.jpg">
+            <img src="Picture21.jpg">
+            <img src="Picture22.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CCTV INSTALLATION -->
+    <div class="work-card">
+      <h3>🎥 CCTV Installation at Dole</h3>
+      <div class="carousel-container" id="cctv">
+        <button class="carousel-btn prev" onclick="moveSlide('cctv', -1)">❮</button>
+        <button class="carousel-btn next" onclick="moveSlide('cctv', 1)">❯</button>
+
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="Picture11.jpg">
+            <img src="Picture12.jpg">
+            <img src="Picture13.jpg">
+            <img src="Picture14.jpg">
+            <img src="Picture15.jpg">
+            <img src="Picture16.jpg">
+            <img src="Picture17.jpg">
+            <img src="Picture18.jpg">
+            <img src="Picture19.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PIPING INSTALLATION -->
+    <div class="work-card">
+      <h3>🔧 Piping & Harnessing at Station 1 & 3</h3>
+      <div class="carousel-container" id="piping">
+        <button class="carousel-btn prev" onclick="moveSlide('piping', -1)">❮</button>
+        <button class="carousel-btn next" onclick="moveSlide('piping', 1)">❯</button>
+
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="Piping.jpg">
+            <img src="Picture1.jpg">
+            <img src="Picture2.jpg">
+            <img src="Picture3.jpg">
+            <img src="Picture4.jpg">
+            <img src="Picture5.jpg">
+            <img src="Picture6.jpg">
+            <img src="Picture7.jpg">
+            <img src="Picture8.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIGHTS INSTALLATION -->
+    <div class="work-card">
+      <h3>💡 Installation of Lights in Broiler Area</h3>
+      <div class="carousel-container" id="lights">
+        <button class="carousel-btn prev" onclick="moveSlide('lights', -1)">❮</button>
+        <button class="carousel-btn next" onclick="moveSlide('lights', 1)">❯</button>
+
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="Lights.jpg">
+            <img src="Lights1.jpg">
+            <img src="Lights2.jpg">
+            <img src="Lights3.jpg">
+            <img src="Lights4.jpg">
+            <img src="Lights5.jpg">
+            <img src="Lights6.jpg">
+            <img src="Lights7.jpg">
+            <img src="Lights9.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOTOR REWINDING -->
+    <div class="work-card">
+      <h3>⚙️ Motor Rewinding at Chi Plant</h3>
+      <div class="carousel-container" id="motor">
+        <button class="carousel-btn prev" onclick="moveSlide('motor', -1)">❮</button>
+        <button class="carousel-btn next" onclick="moveSlide('motor', 1)">❯</button>
+
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="Motor.jpg">
+            <img src="Motor1.jpg">
+            <img src="Motor2.jpg">
+            <img src="Motor3.jpg">
+            <img src="Motor4.jpg">
+            <img src="Motor5.jpg">
+            <img src="Motor6.jpg">
+            <img src="Motor7.jpg">
+            <img src="Motor8.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPPLY INSTALLATION -->
+    <div class="work-card">
+      <h3>📦 Supply Installation at Duvo Agri</h3>
+      <div class="carousel-container" id="supply">
+        <button class="carousel-btn prev" onclick="moveSlide('supply', -1)">❮</button>
+        <button class="carousel-btn next" onclick="moveSlide('supply', 1)">❯</button>
+
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="Supplyinstall.jpg">
+            <img src="Supplyinstall1.jpg">
+            <img src="Supplyinstall2.jpg">
+            <img src="Supplyinstall3.jpg">
+            <img src="Supplyinstall4.jpg">
+            <img src="Supplyinstall5.jpg">
+            <img src="Supplyinstall6.jpg">
+            <img src="Supplyinstall7.jpg">
+            <img src="Supplyinstall8.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CCTV UPGRADE -->
+    <div class="work-card">
+      <h3>🎥 MWO CCTV UPGRADE Phase 1 — DUVO Surallah, Dole Cannery</h3>
+      <div class="carousel-container" id="cctvUpgrade1">
+        <button class="carousel-btn prev" onclick="moveSlide('cctvUpgrade1', -1)">❮</button>
+        <button class="carousel-btn next" onclick="moveSlide('cctvUpgrade1', 1)">❯</button>
+
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="CCTV UGRADE2.jpg">
+            <img src="CCTV UGRADE3.jpg">
+            <img src="CCTV UGRADE4.jpg">
+            <img src="CCTV UGRADE5.jpg">
+            <img src="CCTV UGRADE6.jpg">
+            <img src="CCTV UGRADE7.jpg">
+            <img src="CCTV UGRADE8.jpg">
+            <img src="CCTV UGRADE9.jpg">
+            <img src="CCTV UGRADE1.jpg">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 SSP Electronics and Fabrication Services — All Rights Reserved
+  </footer>
+
+  <script>
+
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      hamburger.classList.toggle("open");
+    });
+
+    const carouselIndex = {
+      fdas: 0,
+      cctv: 0
+    };
+
+    function moveSlide(id, step) {
+      const container = document.getElementById(id);
+      const track = container.querySelector(".carousel-track");
+      const slides = track.children;
+      const totalSlides = slides.length;
+
+      carouselIndex[id] = (carouselIndex[id] + step + totalSlides) % totalSlides;
+
+      track.style.transform = `translateX(-${carouselIndex[id] * 100}%)`;
+    }
+
+  </script>
+
+</body>
+</html>
